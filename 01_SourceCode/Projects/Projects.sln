@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcproj", "{14CB09B5-5A43-4540-827B-D72EFEB27D60}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcproj", "{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProject", "TestProject\TestProject.vcproj", "{A423B7B2-62B9-4D9C-A382-2192EBA38F8F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60} = {14CB09B5-5A43-4540-827B-D72EFEB27D60}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EngineSqliteDB", "EngineSqliteDB\EngineSqliteDB.vcproj", "{47107A3F-A03A-4934-AB83-6D22271A9D11}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60} = {14CB09B5-5A43-4540-827B-D72EFEB27D60}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestUnion", "TestUnion\TestUnion.vcproj", "{867F9738-B78B-43AC-85D8-8BDB38F53B6F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Geometry", "Geometry\Geometry.vcproj", "{FB790EE2-D138-4684-A3D6-0559DF45B0FC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Toolkit", "Toolkit\Toolkit.vcproj", "{4E8B6D91-D600-4D66-B55F-3DCE0EE8A73F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60}.Debug|Win32.Build.0 = Debug|Win32
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60}.Release|Win32.ActiveCfg = Release|Win32
+		{14CB09B5-5A43-4540-827B-D72EFEB27D60}.Release|Win32.Build.0 = Release|Win32
+		{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}.Debug|Win32.Build.0 = Debug|Win32
+		{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}.Release|Win32.ActiveCfg = Release|Win32
+		{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}.Release|Win32.Build.0 = Release|Win32
+		{A423B7B2-62B9-4D9C-A382-2192EBA38F8F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A423B7B2-62B9-4D9C-A382-2192EBA38F8F}.Debug|Win32.Build.0 = Debug|Win32
+		{A423B7B2-62B9-4D9C-A382-2192EBA38F8F}.Release|Win32.ActiveCfg = Release|Win32
+		{A423B7B2-62B9-4D9C-A382-2192EBA38F8F}.Release|Win32.Build.0 = Release|Win32
+		{47107A3F-A03A-4934-AB83-6D22271A9D11}.Debug|Win32.ActiveCfg = Debug|Win32
+		{47107A3F-A03A-4934-AB83-6D22271A9D11}.Debug|Win32.Build.0 = Debug|Win32
+		{47107A3F-A03A-4934-AB83-6D22271A9D11}.Release|Win32.ActiveCfg = Release|Win32
+		{47107A3F-A03A-4934-AB83-6D22271A9D11}.Release|Win32.Build.0 = Release|Win32
+		{867F9738-B78B-43AC-85D8-8BDB38F53B6F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{867F9738-B78B-43AC-85D8-8BDB38F53B6F}.Debug|Win32.Build.0 = Debug|Win32
+		{867F9738-B78B-43AC-85D8-8BDB38F53B6F}.Release|Win32.ActiveCfg = Release|Win32
+		{867F9738-B78B-43AC-85D8-8BDB38F53B6F}.Release|Win32.Build.0 = Release|Win32
+		{FB790EE2-D138-4684-A3D6-0559DF45B0FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FB790EE2-D138-4684-A3D6-0559DF45B0FC}.Debug|Win32.Build.0 = Debug|Win32
+		{FB790EE2-D138-4684-A3D6-0559DF45B0FC}.Release|Win32.ActiveCfg = Release|Win32
+		{FB790EE2-D138-4684-A3D6-0559DF45B0FC}.Release|Win32.Build.0 = Release|Win32
+		{4E8B6D91-D600-4D66-B55F-3DCE0EE8A73F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E8B6D91-D600-4D66-B55F-3DCE0EE8A73F}.Debug|Win32.Build.0 = Debug|Win32
+		{4E8B6D91-D600-4D66-B55F-3DCE0EE8A73F}.Release|Win32.ActiveCfg = Release|Win32
+		{4E8B6D91-D600-4D66-B55F-3DCE0EE8A73F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
