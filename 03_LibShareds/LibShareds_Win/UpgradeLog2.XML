@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LibShareds_Win">
+</Property><Property Name="Solution File" Value="E:\Gis_Kook\03_LibShareds\LibShareds_Win\LibShareds_Win.sln">
+</Property><Property Name="Date" Value="2012年2月23日">
+</Property><Property Name="Time" Value="21:57:11">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="2" Project="i18n" Source="..\icu\source\i18n\i18n.vcproj" Description="The following error has occurred during XML parsing:&#xA;&#xA;File: E:\Gis_Kook\03_LibShareds\icu\source\i18n\i18n.vcproj&#xA;Line: 5&#xA;Column: 21&#xA;Error Message:&#xA;无效指针&#xA;&#xA;The file 'E:\Gis_Kook\03_LibShareds\icu\source\i18n\i18n.vcproj' has failed to load.">
+</Event><Event ErrorLevel="2" Project="i18n" Source="..\icu\source\i18n\i18n.vcproj" Description="Project upgrade failed.">
+</Event><Event ErrorLevel="3" Project="i18n" Source="..\icu\source\i18n\i18n.vcproj" Description="Not Converted">
+</Event></UpgradeLog>
