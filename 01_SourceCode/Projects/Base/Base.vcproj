@@ -202,40 +202,40 @@
 				RelativePath="..\..\Include\Base\GKTextEncoding.h"
 				>
 			</File>
-			<Filter
-				Name="Source Files"
-				Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-				UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+		</Filter>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			>
+			<File
+				RelativePath="..\..\Src\Base\DataType.cpp"
 				>
-				<File
-					RelativePath="..\..\Src\Base\DataType.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\GKByteString.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\GKString.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\gksystem.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\gksystemlinux.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\gksystemwin.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\..\Src\Base\GKTextEncoding.cpp"
-					>
-				</File>
-			</Filter>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\GKByteString.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\GKString.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\gksystem.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\gksystemlinux.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\gksystemwin.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\GKTextEncoding.cpp"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

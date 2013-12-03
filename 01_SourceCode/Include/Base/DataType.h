@@ -165,5 +165,7 @@ struct GKBounds2d
 	GKdouble nBottom;
 };
 
+
+
 }
 #endif

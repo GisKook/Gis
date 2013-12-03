@@ -38,8 +38,6 @@ public:
 	// param pDatasetInfo[in] 数据集信息
 	virtual GKDataset* CreateDataset(GKDatasetInfo* pDatasetInfo);
 	
-
-
 	
 
 private:

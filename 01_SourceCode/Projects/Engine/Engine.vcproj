@@ -184,7 +184,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Engine\GKDBColumns.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Src\Engine\GKDBImp.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Engine\GKDBTable.cpp"
 				>
 			</File>
 		</Filter>
@@ -214,7 +222,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Include\Engine\GKDBColumns.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Include\Engine\GKDBImp.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\Engine\GKDBTable.h"
 				>
 			</File>
 		</Filter>

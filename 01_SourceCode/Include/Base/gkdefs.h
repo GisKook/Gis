@@ -34,8 +34,15 @@
 // ÓÃÓÚ¿ØÖÆ
 #define U_SIZEOF_WCHAR_T 2
 
+#define NAMESPACEBEGIN(x) namespace x{
+#define NAMESPACEEND }
 
+#ifndef IN
+#define IN
+#endif
 
-
+#ifndef OUT 
+#define OUT 
+#endif
 
 #endif // SOURCECODE_INCLUDE_BASE_GKDEFS_H_H
