@@ -188,6 +188,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Engine\GKDBConstraint.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Src\Engine\GKDBImp.cpp"
 				>
 			</File>
@@ -223,6 +227,10 @@
 			</File>
 			<File
 				RelativePath="..\..\Include\Engine\GKDBColumns.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\Engine\GKDBConstraint.h"
 				>
 			</File>
 			<File

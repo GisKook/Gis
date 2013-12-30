@@ -4,9 +4,9 @@
 #ifndef SOURCECODE_INCLUDE_GKSTRING_H_H
 #define SOURCECODE_INCLUDE_GKSTRING_H_H
 
-#include "Base/gkdefs.h"
-#include "Base/DataType.h"
-#include "Base/gkexports.h"
+#include "Base/GKDef.h.h"
+#include "Base/GKDataType.h"
+#include "Base/GKExport.h.h"
 #include "Base/GKByteString.h"
 #include <string>
 

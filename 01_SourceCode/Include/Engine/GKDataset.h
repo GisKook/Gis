@@ -15,7 +15,7 @@
 */
 #ifndef SOURCECODE_INCLUDE_ENGINE_GKDATASET_H_H
 #define SOURCECODE_INCLUDE_ENGINE_GKDATASET_H_H
-#include "Base/gkexports.h"
+#include "Base/GKDataType.h"
 #include "Base/GKString.h"
 #include "Base/GKErrors.h"
 

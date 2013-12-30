@@ -9,9 +9,9 @@
 
 #include <map>
 #include <vector>
-#include "Base/gkexports.h"
-#include "Base/gkdefs.h"
-#include "Base/DataType.h"
+#include "Base/GKDataType.h"
+#include "Base/GKDef.h"
+#include "Base/GKDataType.h"
 #include "Base/GKString.h"
 #include "Engine/GKDataset.h"
 #include "Engine/GKDBImp.h"

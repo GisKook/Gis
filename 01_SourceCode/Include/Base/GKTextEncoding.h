@@ -2,7 +2,7 @@
 #ifndef SOURCECODE_INCLUDE_BASE_GKTEXTENCODING_H_H
 #define SOURCECODE_INCLUDE_BASE_GKTEXTENCODING_H_H
 
-#include "Base/DataType.h"
+#include "Base/GKDataType.h"
 #include "Base/GKString.h"
 
 namespace GKBASE

@@ -6,8 +6,8 @@
 #define SOURCECODE_INCLUDE_BASE_GKBYTESTRING_H_H
 
 #include <string>
-#include "Base/DataType.h"
-#include "Base/gkexports.h"
+#include "Base/GKDataType.h"
+#include "Base/GKDataType.h"
 
 namespace GKBASE
 {

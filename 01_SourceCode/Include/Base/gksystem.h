@@ -31,7 +31,15 @@ static union{
 #endif // __linux__
 #endif // GK_WIN
 
+#ifdef GK_WIN
+inline void BASE_API gkassert( bool b )
+{
+	if (!b){ __asm{ INT 3; } }
+}
+#define GKASSERT gkassert 
+#else
 #define GKASSERT assert
+#endif
 #define GKSPRINTF swprintf
 
 #ifdef GK_WIN
@@ -46,5 +54,30 @@ static union{
 #else
 #endif
 
+// brief 得到高精度时间 
+// brief 读取时间计数器
+#if defined(GK_WIN)
+inline GKulong GetCycleCount(){ 
+	__asm{ _emit 0x0F}
+	__asm{_emit 0x31}
+}
+#endif
+
+class BASE_API GKTimer{
+public:
+	// brief 初始化
+	GKTimer();
+
+	// brief 开始
+	void Start();
+
+	// brief 结束
+	GKulong Stop(); 
+public:
+	GKulong m_uOverhead;
+	
+private:
+	GKulong m_uStartCycle;
+}
 
 #endif // SOURCECODE_INCLUDE_BASE_SYSTEM_H_H

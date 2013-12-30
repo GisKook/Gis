@@ -4,7 +4,7 @@
 #ifndef SOURCECODE_INCLUDE_ENGINESQLITE_GKDATASOURCE_H_H
 #define SOURCECODE_INCLUDE_ENGINESQLITE_GKDATASOURCE_H_H
 
-#include "Base/gkexports.h"
+#include "Base/GKDataType.h"
 #include "Engine/GKDataSource.h"
 
 typedef struct sqlite3 sqlite3;

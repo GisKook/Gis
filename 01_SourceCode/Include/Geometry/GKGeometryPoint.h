@@ -4,7 +4,7 @@
 #ifndef GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRYPOINT_H_H
 #define GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRYPOINT_H_H
 #include "Geometry/GKGeometry.h"
-#include "Base/gksystem.h"
+#include "Base/GKSystem.h"
 
 namespace GKGeometryNameSpace{
 

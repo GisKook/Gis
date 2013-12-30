@@ -1,6 +1,6 @@
 #ifndef SOURCECODE_INCLUDE_ENGINE_GKDATASOURCEMANAGER_H_H
 #define SOURCECODE_INCLUDE_ENGINE_GKDATASOURCEMANAGER_H_H
-#include "Base/gkexports.h"
+#include "Base/GKDataType.h"
 #include "Engine/GKDataSource.h"
 
 namespace GKENGINE

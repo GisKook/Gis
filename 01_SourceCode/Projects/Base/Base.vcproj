@@ -171,15 +171,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\Include\Base\DataType.h"
-				>
-			</File>
-			<File
 				RelativePath="..\..\Include\Base\GKByteString.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Base\gkdefs.h"
+				RelativePath="..\..\Include\Base\GKDataType.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\Base\GKDef.h"
 				>
 			</File>
 			<File
@@ -187,7 +187,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Base\gkexports.h"
+				RelativePath="..\..\Include\Base\GKExport.h"
 				>
 			</File>
 			<File
@@ -195,7 +195,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Base\gksystem.h"
+				RelativePath="..\..\Include\Base\GKSystem.h"
 				>
 			</File>
 			<File
@@ -209,11 +209,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\Src\Base\DataType.cpp"
+				RelativePath="..\..\Src\Base\GKByteString.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Base\GKByteString.cpp"
+				RelativePath="..\..\Src\Base\GKDataType.cpp"
 				>
 			</File>
 			<File
@@ -221,15 +221,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Base\gksystem.cpp"
+				RelativePath="..\..\Src\Base\GKSysNotWin.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Base\gksystemlinux.cpp"
+				RelativePath="..\..\Src\Base\GKSystem.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Base\gksystemwin.cpp"
+				RelativePath="..\..\Src\Base\GKSysWin.cpp"
 				>
 			</File>
 			<File
