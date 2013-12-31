@@ -2,10 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Engine"
-	ProjectGUID="{5ECF26E4-4C72-4C11-8AB6-E6322D2016D1}"
-	RootNamespace="Engine"
-	Keyword="ManagedCProj"
+	Name="DataSource"
+	ProjectGUID="{52CE080C-F8CE-4C94-ADA3-E0E070DC97F3}"
+	RootNamespace="DataSource"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
@@ -20,9 +19,8 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="2"
-			CharacterSet="1"
-			ManagedExtensions="0"
+			ConfigurationType="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -42,12 +40,11 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../Include"
-				PreprocessorDefinitions="WIN32;_DEBUG;ENGINE_EXPORTS"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				DebugInformationFormat="3"
+				DebugInformationFormat="4"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -60,12 +57,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="GKBased.lib"
-				OutputFile="../BinD/GKEngined.gde"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="../BinD"
 				GenerateDebugInformation="true"
-				AssemblyDebug="1"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -95,8 +87,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			CharacterSet="1"
-			ManagedExtensions="1"
+			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -116,9 +107,10 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../Include"
-				PreprocessorDefinitions="WIN32;NDEBUG;ENGINE_EXPORTS"
+				Optimization="2"
+				EnableIntrinsicFunctions="true"
 				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="true"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 			/>
@@ -133,11 +125,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="$(NoInherit)"
-				OutputFile="../BinD/GkEngined.gde"
-				LinkIncremental="1"
-				AdditionalLibraryDirectories="../Bin"
 				GenerateDebugInformation="true"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -172,23 +162,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\Src\Engine\GKDBColumns.cpp"
+				RelativePath="..\..\Src\DataSource\GKDataSource.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Engine\GKDBConstraint.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Src\Engine\GKDBImp.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Src\Engine\GKDBTable.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Src\Engine\GKEngine.cpp"
+				RelativePath="..\..\Src\DataSource\GKDataSourceManager.cpp"
 				>
 			</File>
 		</Filter>
@@ -198,23 +176,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBColumns.h"
+				RelativePath="..\..\Include\DataSource\GKDataset.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBConstraint.h"
+				RelativePath="..\..\Include\DataSource\GKDatasetVector.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBImp.h"
+				RelativePath="..\..\Include\DataSource\GKDataSource.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBTable.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Include\Engine\GKEngine.h"
+				RelativePath="..\..\Include\DataSource\GKDataSourceManager.h"
 				>
 			</File>
 		</Filter>

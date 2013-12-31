@@ -3,9 +3,7 @@
 #include "Base/GKDataType.h"
 #include "Engine/GKDataSource.h"
 
-namespace GKENGINE
-{
-
+NAMESPACEBEGIN(GKDATASOURCE)
 class ENGINE_API GKDataSourceManager
 {
 
@@ -20,6 +18,5 @@ private:
 	GKDataSourceManager& operator=(const GKDataSourceManager&){return *this;};
 };
 
-}
-
+NAMESPACEEND
 #endif

@@ -16,8 +16,7 @@
 #include "Engine/GKDataset.h"
 #include "Engine/GKDBImp.h"
 
-namespace GKENGINE
-{
+NAMESPACEBEGIN(GKDATASOURCE)
 enum GKDataSourceType{
 	SQLITEDB = 0
 };
@@ -94,9 +93,9 @@ private:
 	GKBASE::GKString m_strDescription;
 
 	// 数据库实现
-	GKDBImp* m_pDBImp;
+	GKENGINE::GKDBImp* m_pDBImp;
 };
 
-}
+NAMESPACEEND
 
 #endif

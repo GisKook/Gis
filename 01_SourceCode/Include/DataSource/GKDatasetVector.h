@@ -4,6 +4,7 @@
 #ifndef SOURCECODE_INCLUDE_ENGINE_GKDATASETVECTOR_H_H
 #define SOURCECODE_INCLUDE_ENGINE_GKDATASETVECTOR_H_H
 
+NAMESPACEBEGIN(GKDATASOURCE)
 class ENGINE_API GKDatasetVector : public GKDataset
 {
 public:
@@ -34,4 +35,5 @@ private:
 	// FeatureµÄ¸öÊý
 	GKBASE::GKuint32 m_nFeatureCount;
 };
+NAMESPACEEND
 #endif

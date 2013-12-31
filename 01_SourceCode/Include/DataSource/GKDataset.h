@@ -19,7 +19,7 @@
 #include "Base/GKString.h"
 #include "Base/GKErrors.h"
 
-namespace GKENGINE{
+namespace GKDATASOURCE{
 
 enum GKDatasetType{
 	POINT = 0,
