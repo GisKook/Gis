@@ -11,6 +11,7 @@ import time
 
 def addtips(desfilename, filesname):
     f=file(desfilename,'w')
+    f.truncate()
     f.write('/*'+'\n')
     f.write(' * This file is a collection of header files, easy to use caller :)'+'\n')
     f.write(' *'+'\n')
@@ -26,7 +27,7 @@ def addtips(desfilename, filesname):
 def add_file_content(desfilename, filespath,filesname):
     f=file(desfilename,'a')
     for i in filesname:
-        src_file=file(filepath+os.sep+i,'r')
+        src_file=file(os.path.join(filepath,i),'r')
         f.write('\n// source_file: :)' + i + '\n')
         while True: 
             line=src_file.readline()
@@ -40,7 +41,9 @@ filepath=sys.argv[1]
 headername=os.path.split(filepath)
 headername=headername[len(headername)-1]
 headername='GK'+headername+'.hpp'
-headername=filepath+os.sep+headername
+headername=os.path.join(filepath, headername)
+if os.path.exists(headername):
+    os.remove(headername)
 file_names=os.listdir(filepath)
 addtips(headername,file_names)
 add_file_content(headername, filepath, file_names)
