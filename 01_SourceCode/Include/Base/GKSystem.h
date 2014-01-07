@@ -20,17 +20,6 @@ static union{
 	(args & 0x000000FF00000000) >> 8 | (args & 0x0000FF0000000000) >> 24 | \
 	(args & 0x00FF000000000000) >> 40 | (args & 0xFF00000000000000) >> 56)
 
-// ϵͳ
-#if ! defined(GK_WIN)
-#if defined(_WIN32) || defined(WIN32)
-#define GK_WIN
-#endif // WIN32 or _WIN32
-#else
-#if defined(__linux__)	
-#define GK_LUX
-#endif // __linux__
-#endif // GK_WIN
-
 #ifdef GK_WIN
 inline void BASE_API gkassert( bool b )
 {
