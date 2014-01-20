@@ -10,8 +10,7 @@
 #include <vector>
 #include "Base/GKDef.h" 
 #include "Base/GKDataType.h"
-NAMESPACEBEGIN(GKENGINE)
-
+NAMESPACEBEGIN(GKENGINE) 
 
 // ¡–¿‡
 class ENGINE_API GKDBColumn{

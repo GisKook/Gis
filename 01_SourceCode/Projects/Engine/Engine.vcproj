@@ -176,6 +176,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Engine\GKDBConfig.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Src\Engine\GKDBConstraint.cpp"
 				>
 			</File>
@@ -198,15 +202,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\..\Include\Engine\GKDatabase.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Include\Engine\GKDBColumns.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBConstraint.h"
+				RelativePath="..\..\Include\Engine\GKDBConfig.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Include\Engine\GKDBImp.h"
+				RelativePath="..\..\Include\Engine\GKDBConstraint.h"
 				>
 			</File>
 			<File

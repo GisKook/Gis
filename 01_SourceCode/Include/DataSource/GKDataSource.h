@@ -93,7 +93,7 @@ private:
 	GKBASE::GKString m_strDescription;
 
 	// 数据库实现
-	GKENGINE::GKDBImp* m_pDBImp;
+	GKENGINE::GKDatabase* m_pDBImp;
 };
 
 NAMESPACEEND
