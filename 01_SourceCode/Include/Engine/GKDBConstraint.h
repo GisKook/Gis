@@ -7,6 +7,9 @@
  */
 #ifndef GKDBCONSTRAINT_H_H
 #define GKDBCONSTRAINT_H_H
+#include "Base/GKDef.h"
+#include "Base/GKString.h"
+#include <vector>
 
 NAMESPACEBEGIN(GKENGINE)
 
@@ -27,20 +30,20 @@ class ENGINE_API GKTabConstraint{
 public:
 	// brief 设置主键
 	// param[in] strPrimaryKey主键
-	void SetPrimaryKey(const GKString& IN strPrimaryKey);
+	void SetPrimaryKey(const GKBASE::GKString& IN strPrimaryKey);
 
 	// brief 得到主键
-	std::vector<GKString> GetPrimaryKeys() const;
+	std::vector<GKBASE::GKString> GetPrimaryKeys() const;
 
 	// brief 清空主键
 	void ClearPrimaryKeys();
 
 	// brief 设置唯一约束
 	// param[in] vCols 唯一约束的列
-	void SetUnique(std::vector<GKString> vUniqueCols);
+	void SetUnique(std::vector<GKBASE::GKString> vUniqueCols);
 
 	// brief 得到唯一约束
-	std::vector<std::vector<GKString> > GetUnique() const;
+	std::vector<std::vector<GKBASE::GKString> > GetUnique() const;
 
 	// brief 清空唯一约束
 	void ClearUnique();
@@ -49,9 +52,9 @@ public:
 	void Clear();
 private: 
 	// 主键列 考虑联合主键的情况
-	std::vector<GKString> m_vPrimaryKeys;
+	std::vector<GKBASE::GKString> m_vPrimaryKeys;
 	// 唯一约束列
-	std::vector<std::vector<GKString> > m_vvUniques; 
+	std::vector<std::vector<GKBASE::GKString> > m_vvUniques; 
 };
 
 // brief 列级约束
@@ -77,51 +80,51 @@ public:
 
 	// brief 设置默认值
 	// param[in] strDefault
-	void SetDefault(const GKString& strDefault);
+	void SetDefault(const GKBASE::GKString& strDefault);
 
 	// brief 得到默认值
-	GKString GetDefault() const;
+	GKBASE::GKString GetDefault() const;
 
 	// brief 设置Check条件
 	// param[in] strCheck
-	void SetCheck(const GKString& strCheck);
+	void SetCheck(const GKBASE::GKString& strCheck);
 
 	// brief 得到Check条件
-	GKString GetCheck() const;
+	GKBASE::GKString GetCheck() const;
 
 	// brief 设置外键
 	// param[in] strForeignKey
-	void SetForeignKey(const GKString& strForeignKey);
+	void SetForeignKey(const GKBASE::GKString& strForeignKey);
 
 	// brief 得到外键
-	GKString GetForeignKey() const;
+	GKBASE::GKString GetForeignKey() const;
 
 	// brief 判断是否非空
-	GKbool IsNull() const;
+	GKBASE::GKbool IsNull() const;
 
 	// brief 判断是否有Check约束
-	GKbool IsCheck() const;
+	GKBASE::GKbool IsCheck() const;
 
 	// brief 判断是否有默认值
-	GKbool IsDefaultValue() const;
+	GKBASE::GKbool IsDefaultValue() const;
 
 	// brief 判断是否有外键
-	GKbool IsForeignKey() const;
+	GKBASE::GKbool IsForeignKey() const;
 
 	// brief 清空约束内容
 	void Clear();
  private:	
 	// brief 约束选项
-	GKuint32 m_uOptions;
+	 GKBASE::GKuint32 m_uOptions;
 	
 	// brief 默认值
-	GKString m_strDefValue;
+	GKBASE::GKString m_strDefValue;
 
 	// brief Check条件
-	GKString m_strCheck;
+	GKBASE::GKString m_strCheck;
 
 	// brief 外键
-	GKString m_strForeignTable;
+	GKBASE::GKString m_strForeignTable;
 };
 
 NAMESPACEEND

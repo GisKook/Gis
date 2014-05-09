@@ -10,5 +10,6 @@
 #define GKSUCCESS                         0x00000000 // 正确
 #define EDSS_FILEEXIST                    0xF0000001 // sqlite数据库文件存在无法创建
 #define EDSS_OPENFAILE                    0xF0000002 // sqlite文件打开失败
+#define E_ENGINE_CONNERROR				  0xF0000003 // 数据库链接失败 
 
 #endif

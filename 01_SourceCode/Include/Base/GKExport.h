@@ -35,4 +35,10 @@
 #define TOOLKIT_API GISKOOK_IMPORT
 #endif
 
+#ifdef ENGINEPG_EXPORTS
+#define ENGINEPG_API GISKOOK_EXPORT
+#else
+#define ENGINEPG_API GISKOOK_IMPORT
+#endif
+
 #endif

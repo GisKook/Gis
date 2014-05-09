@@ -4,31 +4,39 @@
 */
 #ifndef SOURCECODE_INCLUDE_ENGINE_GKENGINETOOLKIT_H_H
 #define SOURCECODE_INCLUDE_ENGINE_GKENGINETOOLKIT_H_H
+#include "Base/GKDataType.h"
+#include "Base/GKErrors.h"
+#include "Base/GKString.h"
+#include "Engine/GKRecordset.h"
 
-namespace GKENGINE{
+NAMESPACEBEGIN(GKENGINE)
+
 
 // brief 数据库类型
 typedef enum{
 	GKSQLITEDB=0,
-	GKORACLE=1,
+	GKPOSTGRESQL=1,
 }GKDBType;
 
 // 数据库连接信息
-struct GKDBConnInfo
-{
-	GKBASE::GKString strServer;
-	GKBASE::GKString strUser;
-	GKBASE::GKString strPwd;
-	GKDBType nDBType;
+struct GKPGConnInfo{
+	const char* pghost;
+	const char* pgport;
+	const char* pgoptions;
+	const char* pgtty;
+	const char* dbName;
+	const char* login;
+	const char* passwd; 
+	GKDBType type;
 };
+
+typedef union{
+	struct GKPGConnInfo pgConn;
+}GKDBConnInfo;
 
 class ENGINE_API GKDatabase
 {
-	// 执行sql
-	// param [in] 数据源
-	// param [in] sql语句
-	virtual GKBASE::GKErrorCode ExceSQL(GKDataSource*, const GKBASE::GKString&) = 0;
-
+public:
 	// 连接数据库
 	// nDataSourceConnInfo[in] 数据源连接信息
 	virtual GKBASE::GKErrorCode Connect(const GKDBConnInfo& nDataSourceConnInfo) = 0;
@@ -37,15 +45,20 @@ class ENGINE_API GKDatabase
 	virtual GKBASE::GKErrorCode DisConnect() = 0;
 
 	// brief 得到数据库类型
-	inline GKDBType GetType(){return m_nType;};
+	inline GKDBType GetType();
 
-	// brief 创建表
-	virtual GKBASE::GKErrorCode CreateTable() = 0; 
+	// 执行sql
+	// param [in] sql语句
+	virtual GKBASE::GKErrorCode ExceSQL(const GKBASE::GKString&) = 0;
 
-private:
-	GKDatabase GKDatabase(const GKDBImp&);
+	// brief 执行Select操作 异步操作
+	// param[in] sql 要被执行的sql
+	virtual GKBASE::GKbool SendQuery(const char* ) = 0;
 
-private:
+	// brief 收集由SendQuery发送的命令的结果
+	virtual GKRecordset* GetRecordset() = 0;
+
+protected:
 	// 数据库连接
 	void* m_pConnection;
 
@@ -53,5 +66,5 @@ private:
 	GKDBType m_nType;
 };
 
-}
+NAMESPACEEND
 #endif

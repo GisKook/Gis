@@ -8,8 +8,7 @@
 
 #include "Base/GKDef.h"
 
-namespace GKBASE 
-{
+NAMESPACEBEGIN(GKBASE)
 
 typedef unsigned char			GKbyte;
 typedef char					GKchar;
@@ -184,11 +183,12 @@ typedef struct _GKVARIANT{
 		GKbyte* pData; 
 	} GKVAR;
 	int nCount; // 字符长度,内容长度
-	CNVAR value;
+	GKVAR value;
 #define iValue value.iValue
 #define dValue value.dValue
 #define pValue value.pValue
 }GKVARIANT;
 
-}
+NAMESPACEEND
+
 #endif

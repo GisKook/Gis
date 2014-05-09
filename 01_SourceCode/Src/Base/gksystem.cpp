@@ -1,5 +1,12 @@
-#include "Base/GKSystem.h.h"
-#include "Base/GKExport.h.h"
+#include "Base/GKSystem.h"
+#include "Base/GKExport.h"
+
+#if defined(GK_WIN)
+static inline unsigned long long GetCycleCount(){ 
+	__asm{ _emit 0x0F}
+	__asm{_emit 0x31}
+}
+#endif
 
 GKTimer::GKTimer()
 {
@@ -13,7 +20,7 @@ void GKTimer::Start()
 	m_uStartCycle = GetCycleCount();
 }
 
-GKBASE::GKulong GKTimer::Stop()
+unsigned long long GKTimer::Stop()
 { 
 	return GetCycleCount()-m_uStartCycle-m_uOverhead;
 }

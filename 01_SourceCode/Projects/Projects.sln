@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Toolkit", "Toolkit\Toolkit.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataSource", "DataSource\DataSource.vcproj", "{52CE080C-F8CE-4C94-ADA3-E0E070DC97F3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnginePostgreSQL", "EnginePostgreSQL\EnginePostgreSQL.vcproj", "{FAE2350E-61EC-4938-8449-24E5329F3475}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -61,6 +63,10 @@ Global
 		{52CE080C-F8CE-4C94-ADA3-E0E070DC97F3}.Debug|Win32.Build.0 = Debug|Win32
 		{52CE080C-F8CE-4C94-ADA3-E0E070DC97F3}.Release|Win32.ActiveCfg = Release|Win32
 		{52CE080C-F8CE-4C94-ADA3-E0E070DC97F3}.Release|Win32.Build.0 = Release|Win32
+		{FAE2350E-61EC-4938-8449-24E5329F3475}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAE2350E-61EC-4938-8449-24E5329F3475}.Debug|Win32.Build.0 = Debug|Win32
+		{FAE2350E-61EC-4938-8449-24E5329F3475}.Release|Win32.ActiveCfg = Release|Win32
+		{FAE2350E-61EC-4938-8449-24E5329F3475}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

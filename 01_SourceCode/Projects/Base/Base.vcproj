@@ -43,7 +43,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../Include;../../Libshared/icu/include;../../Libshared/iconv"
-				PreprocessorDefinitions="WIN32;_DEBUG;BASE_EXPORTS"
+				PreprocessorDefinitions="WIN32;_DEBUG;BASE_EXPORTS;"
 				RuntimeLibrary="3"
 				WarningLevel="3"
 				DebugInformationFormat="3"

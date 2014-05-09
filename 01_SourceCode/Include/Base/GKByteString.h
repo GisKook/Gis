@@ -7,7 +7,6 @@
 
 #include <string>
 #include "Base/GKDataType.h"
-#include "Base/GKDataType.h"
 
 namespace GKBASE
 {
