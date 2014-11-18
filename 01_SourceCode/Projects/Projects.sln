@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataSource", "DataSource\Da
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnginePostgreSQL", "EnginePostgreSQL\EnginePostgreSQL.vcproj", "{FAE2350E-61EC-4938-8449-24E5329F3475}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileParseshp", "FileParseshp\FileParseshp.vcproj", "{BCD87A1F-42EC-4566-896D-4C4DE09A4103}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -67,6 +69,10 @@ Global
 		{FAE2350E-61EC-4938-8449-24E5329F3475}.Debug|Win32.Build.0 = Debug|Win32
 		{FAE2350E-61EC-4938-8449-24E5329F3475}.Release|Win32.ActiveCfg = Release|Win32
 		{FAE2350E-61EC-4938-8449-24E5329F3475}.Release|Win32.Build.0 = Release|Win32
+		{BCD87A1F-42EC-4566-896D-4C4DE09A4103}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BCD87A1F-42EC-4566-896D-4C4DE09A4103}.Debug|Win32.Build.0 = Debug|Win32
+		{BCD87A1F-42EC-4566-896D-4C4DE09A4103}.Release|Win32.ActiveCfg = Release|Win32
+		{BCD87A1F-42EC-4566-896D-4C4DE09A4103}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
