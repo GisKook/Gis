@@ -269,7 +269,7 @@ void SHPAPI_CALL SASetupUtf8Hooks( SAHooks *psHooks );
 /************************************************************************/
 /*                             SHP Support.                             */
 /************************************************************************/
-typedef	struct
+typedef	struct _SHPHANDLE
 {
     SAHooks sHooks;
 
