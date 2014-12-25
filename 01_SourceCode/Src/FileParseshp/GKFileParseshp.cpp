@@ -1,24 +1,27 @@
+#include <stdlib.h>
+#include <string.h>
 #include "FileParseshp/GKFileParseshp.h"
 #include "shapefile.h"
 
-using namespace FILEPARSE;
+using namespace GKFILEPARSE;
 
-FILEPARSE::GKFileParseshp::GKFileParseshp():
+GKFILEPARSE::GKFileParseshp::GKFileParseshp():
 m_shphandle(NULL),
-m_nEntities(NULL),
-m_nShapeType(NULL),
-m_dMinBound(NULL),
-m_dMaxBound(NULL)
-{}
+m_nEntities(0),
+m_nShapeType(0)
+{
+	memset(m_dMinBound, 0, sizeof(double)*EXTREMUM);
+	memset(m_dMaxBound, 0, sizeof(double)*EXTREMUM);
+}
 
-int FILEPARSE::GKFileParseshp::Open( const char * strFilePath )
+int GKFILEPARSE::GKFileParseshp::Open( const char * strFilePath )
 { 
 	m_shphandle = SHPOpen(strFilePath, "rb");
 
 	return m_shphandle == NULL;
 }
 
-void FILEPARSE::GKFileParseshp::Close()
+void GKFILEPARSE::GKFileParseshp::Close()
 {
 	if(m_shphandle != NULL) {
 		SHPClose(m_shphandle);
@@ -26,17 +29,37 @@ void FILEPARSE::GKFileParseshp::Close()
 	}
 }
 
-void FILEPARSE::GKFileParseshp::GetInfo()
+void GKFILEPARSE::GKFileParseshp::GetInfo()
 { 
 	if(m_shphandle != NULL){
-		SHPGetInfo(m_shphandle, m_nEntities, m_nShapeType, m_dMinBound, m_dMaxBound);
+		SHPGetInfo(m_shphandle, &m_nEntities, &m_nShapeType, m_dMinBound, m_dMaxBound);
 	}
 }
 
-FILEPARSE::GKFileParseshp::~GKFileParseshp()
+GKFILEPARSE::GKFileParseshp::~GKFileParseshp()
 { 
 	if (m_shphandle != NULL)
 	{
 		Close();
 	}
+}
+
+int GKFileParseshp::GetEntities()
+{
+	return m_nEntities; 
+}
+
+GKFileParseshp::shapetype GKFileParseshp::GetShapetype()
+{
+	return (GKFileParseshp::shapetype)m_nShapeType;
+}
+
+double * GKFileParseshp::GetMinBound()
+{ 
+	return m_dMinBound;
+}
+
+double * GKFileParseshp::GetMaxBound()
+{ 
+	return m_dMaxBound;
 }

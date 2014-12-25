@@ -59,7 +59,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shapelib.lib"
+				AdditionalDependencies="shapelib.lib "
 				OutputFile="../BinD/GKFileParseshp.dll"
 				AdditionalLibraryDirectories="../BinD"
 				GenerateDebugInformation="true"

@@ -9,9 +9,11 @@
 #define FILEPARSE_FILEPARSESHP_H_H
 #include "Base/GKDef.h"
 #include "Base/GKExport.h"
+
 struct _SHPHANDLE;
 typedef struct _SHPHANDLE * SHPHandle;
-NAMESPACEBEGIN(FILEPARSE)
+
+NAMESPACEBEGIN(GKFILEPARSE)
 
 class FILEPARSE_API GKFileParseshp{
 public:
@@ -37,13 +39,21 @@ public:
 	int Open(const char * strFilePath);
 	void Close();
 	void GetInfo();
-
+	int GetEntities();
+	shapetype GetShapetype();
+	double *GetMinBound();
+	double *GetMaxBound();
+	
+private:
+	enum{
+		EXTREMUM = 4
+	};
 private:
 	SHPHandle m_shphandle;
-	int *m_nEntities;
-	int *m_nShapeType;
-	double *m_dMinBound;
-	double *m_dMaxBound;
+	int m_nEntities;
+	int m_nShapeType;
+	double m_dMinBound[EXTREMUM];
+	double m_dMaxBound[EXTREMUM];
 };
 
 NAMESPACEEND
