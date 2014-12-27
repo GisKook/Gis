@@ -12,6 +12,11 @@
 
 struct _SHPHANDLE;
 typedef struct _SHPHANDLE * SHPHandle;
+struct _SHPobject;
+typedef struct _SHPobject SHPObject;
+
+struct _DBFinfo;
+typedef struct _DBFinfo * DBFHandle;
 
 NAMESPACEBEGIN(GKFILEPARSE)
 
@@ -33,20 +38,52 @@ public:
 		SHPT_MULTIPOINTM = 28
 	};
 
+	typedef enum {
+	  FTString,
+	  FTInteger,
+	  FTDouble,
+	  FTLogical,
+	  FTInvalid
+	} DBFFieldType;
+
 public:
 	GKFileParseshp();
 	~GKFileParseshp();
+
+public:
 	int Open(const char * strFilePath);
 	void Close();
-	void GetInfo();
+
+	void LoadInfo();
 	int GetEntities();
 	shapetype GetShapetype();
 	double *GetMinBound();
 	double *GetMaxBound();
+
+	SHPObject *GetEntity(int nIndex); 
+	void DestroyEntity(SHPObject * entity);
+	static void PrintEntity(SHPObject * entity);
+	static int GetEntityID(SHPObject * entity);
+
+public:
+	int OpenDBF(const char * strFilePath);
+	void CloseDBF();
+	void LoadDBFInfo(); 
+	int GetFieldCount();
+	int GetRecordCount();
+	char * GetFiledName(int nField);
+	DBFFieldType GetFieldType(int nField);
+	int GetFieldWidth(int nField);
+	int GetFieldDecimals(int nField);
+
+	int ReadIntegerAttr(int nShapeID, int nField);
+	int ReadDoubleAttr(int nShapeID, int nField);
+	const char * ReadStringAttr(int nShapeID, int nField);
 	
 private:
 	enum{
-		EXTREMUM = 4
+		EXTREMUM = 4,
+		MAXFIELDNAMELENGTH = 12 //  a dummy character for '\0'
 	};
 private:
 	SHPHandle m_shphandle;
@@ -54,6 +91,18 @@ private:
 	int m_nShapeType;
 	double m_dMinBound[EXTREMUM];
 	double m_dMaxBound[EXTREMUM];
+	
+private:
+	struct FieldInfo{
+		char FieldName[MAXFIELDNAMELENGTH];
+		int  Width;
+		int  Decimals;
+		DBFFieldType FieldType;
+	};
+	DBFHandle m_dbfhandle;
+	int m_nFieldCount;
+	int m_nRecordCount;
+	struct FieldInfo * m_Fields;
 };
 
 NAMESPACEEND

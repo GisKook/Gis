@@ -331,7 +331,7 @@ typedef SHPInfo * SHPHandle;
 /*      SHPObject - represents on shape (without attributes) read       */
 /*      from the .shp file.                                             */
 /* -------------------------------------------------------------------- */
-typedef struct
+typedef struct _SHPobject
 {
     int		nSHPType;
 
@@ -501,7 +501,7 @@ int SHPAPI_CALL
 /************************************************************************/
 /*                             DBF Support.                             */
 /************************************************************************/
-typedef	struct
+typedef	struct _DBFinfo
 {
     SAHooks sHooks;
 
