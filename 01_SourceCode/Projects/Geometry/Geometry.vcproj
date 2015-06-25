@@ -20,7 +20,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="./Debug"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="2"
+			ConfigurationType="1"
 			CharacterSet="1"
 			ManagedExtensions="0"
 			>
@@ -42,6 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="../../Include"
 				PreprocessorDefinitions="WIN32;_DEBUG;GEOMETRY_EXPORTS"
 				RuntimeLibrary="3"
 				WarningLevel="3"
@@ -170,6 +171,10 @@
 				RelativePath="..\..\Src\Geometry\GKGeometry.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\test.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -182,10 +187,6 @@
 			</File>
 			<File
 				RelativePath="..\..\Include\Geometry\GKGeometryLine.h"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Include\Geometry\GKGeometryManager.h"
 				>
 			</File>
 			<File

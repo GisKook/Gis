@@ -6,26 +6,20 @@
 #include "Geometry/GKGeometry.h"
 #include "Base/GKSystem.h"
 
-namespace GKGeometryNameSpace{
+namespace GKGEOMERTY{
 
 class GEOMETRY_API GKGeometryPoint : public GKGeometry
 {
 public:
-	
-	// 得到存储在数据库中点的大小.
-	virtual GKuint32 GetBufferSize() const{return sizeof(GKPoint2d);}
-
+	GKGeometryPoint(GKBASE::GKdouble x, GKBASE::GKdouble y):m_point(x, y){};
+	GKGeometryPoint(GKBASE::GKPoint2d pt):m_point(pt){};
+	GKGeometryPoint(){};
+public:
 	// 得到类型
-	virtual GKuint8 GetType() const{return (GKuint8)GKGeometry::GeoPoint;}
-
-	// 得到内容
-	virtual const GKbyte* GetBuffer() const	{return &m_nContent;}
-
-	// 设置内容
-	virtual void SetBuffer(const GKbyte* pBuffer, GKuint32 nSize){ memcpy(&m_nContent,pBuffer, nSize) };
+	virtual GKBASE::GKuint8 GetType() const {return (GKBASE::GKuint8)GKGeometry::GeoPoint;}
 
 private:
-	GKPoint2d m_nContent;
+	GKBASE::GKPoint2d m_point;
 };
 
 }

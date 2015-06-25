@@ -3,7 +3,7 @@
 #ifndef GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRYPOLYPOLYLINE_H_H
 #define GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRYPOLYPOLYLINE_H_H
 
-namespace GKGeometryNameSpace{
+namespace GKGEOMERTY{
 
 
 class GEOMETRY_API GKPolypolyline : public GKGeometry

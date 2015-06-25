@@ -62,6 +62,9 @@ struct GKPoint2d
 {
 	GKdouble x;
 	GKdouble y;
+	GKPoint2d():x(0),y(0){};
+	GKPoint2d(GKdouble x, GKdouble y):x(x), y(y){};
+	GKPoint2d(const GKPoint2d &pt):x(pt.x), y(pt.y){};
 };
 
 struct GKMultiPoint
@@ -86,6 +89,8 @@ struct GKLine2d
 {
 	GKPoint2d ptStart;
 	GKPoint2d ptEnd;
+	GKLine2d(){};
+	GKLine2d(GKPoint2d start, GKPoint2d end):ptStart(start), ptEnd(end){};
 };
 
 struct GKPolyLine
