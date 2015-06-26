@@ -5,20 +5,17 @@
 #include "Geometry/GKGeometry.h"
 #include "Geometry/GKGeometryPoint.h"
 
-NAMESPACEBEGIN(GKGEOMERTY)
+NAMESPACEBEGIN(GKGEOMETRY)
 
 class GEOMETRY_API GKGeometryLine : public GKGeometry
 {
 public:
 	GKGeometryLine(){};
-	GKGeometryLine(GKBASE::GKPoint2d start, GKBASE::GKPoint2d end):m_Line(start, end){};
-	GKGeometryLine(GKBASE::GKLine2d line):m_Line(line){};
+	GKGeometryLine(GKBASE::GKPoint2d start, GKBASE::GKPoint2d end){m_points.push_back(start); m_points.push_back(end);}
 public:
 	// 得到Geomtry的类型
 	virtual GKBASE::GKuint8 GetType() const {return  (GKBASE::GKuint8)GKGeometry::GeoLine;} 
-
-private:
-	GKBASE::GKLine2d m_Line;
 };
+
 NAMESPACEEND
 #endif

@@ -6,20 +6,19 @@
 #include "Geometry/GKGeometry.h"
 #include "Base/GKSystem.h"
 
-namespace GKGEOMERTY{
+namespace GKGEOMETRY{
 
 class GEOMETRY_API GKGeometryPoint : public GKGeometry
 {
 public:
-	GKGeometryPoint(GKBASE::GKdouble x, GKBASE::GKdouble y):m_point(x, y){};
-	GKGeometryPoint(GKBASE::GKPoint2d pt):m_point(pt){};
+	GKGeometryPoint(GKBASE::GKdouble x, GKBASE::GKdouble y){m_points.push_back(GKBASE::GKPoint2d(x, y));}
+	GKGeometryPoint(GKBASE::GKPoint2d pt){m_points.push_back(pt);}
 	GKGeometryPoint(){};
 public:
 	// 得到类型
 	virtual GKBASE::GKuint8 GetType() const {return (GKBASE::GKuint8)GKGeometry::GeoPoint;}
-
-private:
-	GKBASE::GKPoint2d m_point;
+	virtual void AddPoint(GKBASE::GKPoint2d pt){m_points[0] = pt;}
+	virtual void AddPoint(GKBASE::GKdouble x, GKBASE::GKdouble y){m_points[0] = GKBASE::GKPoint2d(x,y);}
 };
 
 }

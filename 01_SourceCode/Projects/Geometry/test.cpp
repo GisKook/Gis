@@ -1,9 +1,10 @@
 #include "Geometry/GKGeometryPoint.h"
 #include "Geometry/GKGeometryLine.h"
+#include "Geometry/GKGeometryPointMulti.h"
 #include <stdio.h>
 
 using namespace GKBASE;
-using namespace GKGEOMERTY;
+using namespace GKGEOMETRY;
 
 int main(){
 	GKPoint2d pt(0.1,0.2);
@@ -23,11 +24,32 @@ int main(){
 	gpt3 = gpt1; 
 
 	GKGeometryLine gline1(pt, pt2);
-	GKGeometryLine gline2(line3);
 	GKGeometryLine gline3;
-	GKPoint2d ptt = gline2[0];
-	gline3 = gline2;
+	gline3 = gline1;
+	GKPoint2d ptone = gline1[0];
+	GKPoint2d pttwo = gline1[1];
+	gline1[1].x = 1000;
+	gline1[1].y = 2000;
 
+	// pointmulti
+	GKGeometryMultiPoint geomp;
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp.AddPoint(1,2);
+	geomp[0].x = 10;
+	geomp[0].y = 10;
+
+
+	
 
 	return 0;
 }

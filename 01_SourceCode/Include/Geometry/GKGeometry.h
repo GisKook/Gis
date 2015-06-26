@@ -28,8 +28,9 @@
 #ifndef GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRY_H_H 
 #define GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRY_H_H
 #include "Base/GKDataType.h"
+#include <vector>
 
-namespace GKGEOMERTY{
+namespace GKGEOMETRY{
 
 #define GKGEOMETRYOPTIONS(arg1, arg2) (arg1>>32 | arg2 >> 24)
 
@@ -62,6 +63,13 @@ public:
 	// 得到Geomtry的类型
 	virtual GKBASE::GKuint8 GetType() const = 0;
 
+	virtual GKBASE::GKuint32 GetSize() const {return m_points.size();}
+
+	virtual void AddPoint(GKBASE::GKPoint2d pt){m_points.push_back(pt);}
+	virtual void AddPoint(GKBASE::GKdouble x, GKBASE::GKdouble y){m_points.push_back(GKBASE::GKPoint2d(x,y));}
+
+	GKBASE::GKPoint2d & operator[](GKBASE::GKuint32 index);
+
 public:
 	virtual ~GKGeometry(){};
 	GKGeometry():m_nOptions(0), m_nID(0){};
@@ -72,6 +80,9 @@ private:
 
 	// Geometry的gid,不作为存储在数据库或文件中的内容.
 	GKBASE::GKulong m_nID;
+
+public:
+	std::vector<GKBASE::GKPoint2d> m_points;
 };
 
 }

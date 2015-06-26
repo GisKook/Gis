@@ -172,6 +172,18 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Geometry\GKGeometryLine.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Geometry\GKGeometryPointMulti.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Geometry\GKGeometryPolygon.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\test.cpp"
 				>
 			</File>
