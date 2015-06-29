@@ -20,7 +20,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="./Debug"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="2"
 			CharacterSet="1"
 			ManagedExtensions="0"
 			>
@@ -172,20 +172,16 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Src\Geometry\GKGeometryLine.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Src\Geometry\GKGeometryPointMulti.cpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\Src\Geometry\GKGeometryPolygon.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\test.cpp"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter
