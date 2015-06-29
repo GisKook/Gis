@@ -6,10 +6,11 @@
 #ifndef SOURCECODE_INCLUDE_BASE_GKERRORS_H_H
 #define SOURCECODE_INCLUDE_BASE_GKERRORS_H_H
 #include "Base/GKDef.h"
+#include "Base/GKDataType.h"
 
-#define GKSUCCESS                         0x00000000 // 正确
-#define EDSS_FILEEXIST                    0xF0000001 // sqlite数据库文件存在无法创建
-#define EDSS_OPENFAILE                    0xF0000002 // sqlite文件打开失败
-#define E_ENGINE_CONNERROR				  0xF0000003 // 数据库链接失败 
+#define GKSUCCESS                         0x00000000 // success
+#define E_FILEPATH_UNSPORT_I18N           0x00000001 // filepath donot support i18n
+
+char * GKErrorStr(GKBASE::GKErrorCode errcode);
 
 #endif

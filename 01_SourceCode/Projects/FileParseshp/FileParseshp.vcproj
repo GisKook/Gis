@@ -41,7 +41,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories="../../Include;../../Libshared/shapefile"
-				PreprocessorDefinitions="WIN32;_DEBUG;FILEPARSE_EXPORTS;"
+				PreprocessorDefinitions="WIN32;_DEBUG;FILEPARSE_EXPORTS;GEOMETRY_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -59,7 +59,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="shapelib.lib "
+				AdditionalDependencies="shapelib.lib GKGeometryd.lib"
 				OutputFile="../BinD/GKFileParseshp.dll"
 				AdditionalLibraryDirectories="../BinD"
 				GenerateDebugInformation="true"

@@ -15,5 +15,7 @@ GKBASE::GKPoint2d & GKGEOMETRY::GKGeometry::operator[]( GKBASE::GKuint32 index )
 			return m_points[index];
 		}
 	}
+
+	return EMPTY_PIONT;
 }
 

@@ -28,6 +28,7 @@
 #ifndef GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRY_H_H 
 #define GIS_KOOK_INCLUDE_GEOMETRY_GKGEOMETRY_H_H
 #include "Base/GKDataType.h"
+#include "Base/GKExport.h"
 #include <vector>
 
 namespace GKGEOMETRY{
@@ -44,21 +45,16 @@ public:
 		GeoPolyline,
 		GeoPolyPolyline,
 		GeoPolygon,
-		GeoPolypolygon	
+		GeoPolypolygon,
+		GeoMixture
 	};
 
 	// 得到Geomtry在数据库中存储的gid
-	GKBASE::GKulong GetID() const
-	{
-		return m_nID;
-	}
+	GKBASE::GKulong GetID() const { return m_nID; }
 
 	// 设置Geomtry的gid
 	// param nID
-	void SetID(GKBASE::GKulong nID)
-	{
-		m_nID = nID;
-	}
+	void SetID(GKBASE::GKulong nID) { m_nID = nID; }
 
 	// 得到Geomtry的类型
 	virtual GKBASE::GKuint8 GetType() const = 0;

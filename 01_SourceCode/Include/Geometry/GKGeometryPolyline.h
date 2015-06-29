@@ -12,11 +12,16 @@ class GEOMETRY_API GKGeometryPolyline : public GKGeometry
 {
 public:
 	GKGeometryPolyline(){};
-	GKGeometryPolyline(std::vector<GKBASE::GKPoint2d> & pts){m_points= pts;};
+	GKGeometryPolyline(std::vector<GKBASE::GKPoint2d> & pts){m_points=pts;};
+	GKGeometryPolyline(GKBASE::GKPolyLine2d & line){
+		for(GKBASE::GKuint32 i = 0; i < line.nPointCount; ++i){
+			m_points.push_back(line.pLinesData[i]);
+		}
+	}
 
 public:
 	// 得到Geomtry的类型
-	virtual GKuint8 GetType() const {return (GKuint8)GKGeometry::GeoPolyline;} 
+	virtual GKBASE::GKuint8 GetType() const {return (GKBASE::GKuint8)GKGeometry::GeoPolyline;} 
 };
 
 }

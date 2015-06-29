@@ -1,13 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
-#include "FileParseshp/GKFileParseshp.h"
 #include "shapefile.h"
+#include "FileParseshp/GKFileParseshp.h"
+#include "Geometry/GKGeometryHeader.h"
 
 using namespace GKFILEPARSE;
+using namespace GKGEOMETRY;
+using namespace GKBASE;
 
 GKFILEPARSE::GKFileParseshp::GKFileParseshp():
 m_shphandle(NULL),
-m_nEntities(0),
+m_nEntitieCount(0),
 m_nShapeType(0),
 m_nFieldCount(0),
 m_nRecordCount(0),
@@ -17,7 +20,7 @@ m_Fields(NULL)
 	memset(m_dMaxBound, 0, sizeof(double)*EXTREMUM);
 }
 
-int GKFILEPARSE::GKFileParseshp::Open( const char * strFilePath )
+int GKFILEPARSE::GKFileParseshp::Open_( const char * strFilePath )
 { 
 	m_shphandle = SHPOpen(strFilePath, "rb");
 
@@ -35,7 +38,7 @@ void GKFILEPARSE::GKFileParseshp::Close()
 void GKFILEPARSE::GKFileParseshp::LoadInfo()
 { 
 	if(m_shphandle != NULL){
-		SHPGetInfo(m_shphandle, &m_nEntities, &m_nShapeType, m_dMinBound, m_dMaxBound);
+		SHPGetInfo(m_shphandle, &m_nEntitieCount, &m_nShapeType, m_dMinBound, m_dMaxBound);
 	}
 }
 
@@ -47,18 +50,7 @@ GKFILEPARSE::GKFileParseshp::~GKFileParseshp()
 	}
 }
 
-SHPObject * GKFILEPARSE::GKFileParseshp::GetEntity( int nIndex )
-{ 
-	return SHPReadObject(m_shphandle, nIndex);
-}
-
-void GKFILEPARSE::GKFileParseshp::DestroyEntity( SHPObject * entity )
-{
-	SHPDestroyObject(entity); 
-	entity = NULL;
-}
-
-void GKFILEPARSE::GKFileParseshp::PrintEntity( SHPObject * entity )
+void PrintEntity( SHPObject * entity )
 { 
     int		nSHPType = entity->nSHPType;
     int		nShapeId = entity->nShapeId;
@@ -189,14 +181,52 @@ int GKFILEPARSE::GKFileParseshp::GetFieldDecimals( int nField )
 	return (nField < m_nFieldCount) ? m_Fields[nField].Decimals : -1;
 }
 
-int GKFILEPARSE::GKFileParseshp::GetEntityID( SHPObject * entity )
-{ 
-	return entity->nShapeId;
+GKGEOMETRY::GKGeometry * GKFILEPARSE::GKFileParseshp::GetGeomerty( int index )
+{
+	GKGeometry * geo = NULL;
+	SHPObject * shpobject = SHPReadObject(m_shphandle, index); 
+	if (shpobject != NULL){
+		switch(m_nShapeType){
+			case SHP_POINT:
+			case SHP_POINTM:
+			case SHP_POINTZ:
+				geo = new GKGeometryPoint(*shpobject->padfX,*shpobject->padfY);
+				break;
+			case SHP_ARC:
+			case SHP_ARCM:
+			case SHP_ARCZ:
+				{
+					geo = new GKGeometryPolypolyline; 
+					for(int i = 0; i < shpobject->nVertices; ++i){
+						geo->AddPoint(shpobject->padfX[i], shpobject->padfY[i]);
+					}
+					std::vector<GKBASE::GKuint32> m_pointcount; 
+					((GKGeometryPolypolyline *)geo)->SetSubLinePointsCount(m_pointcount);
+				}
+				break;
+			case SHP_POLYGON:
+			case SHP_POLYGONM:
+			case SHP_POLYGONZ:
+				geo = new GKGeometryPolypolygon;
+				break;
+			case SHP_MULTIPOINT:
+			case SHP_MULTIPOINTM:
+			case SHP_MULTIPOINTZ:
+				geo = new GKGeometryMultiPoint;
+				break;
+		}
+		if (geo != NULL) {
+			geo->SetID(shpobject->nShapeId);
+		}
+	}
+	SHPDestroyObject(shpobject);
+	
+	return geo;
 }
 
-int GKFileParseshp::GetEntities()
+int GKFileParseshp::GetEntitieCount()
 {
-	return m_nEntities; 
+	return m_nEntitieCount; 
 }
 
 GKFileParseshp::shapetype GKFileParseshp::GetShapetype()

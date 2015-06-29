@@ -9,12 +9,12 @@
 #define FILEPARSE_FILEPARSESHP_H_H
 #include "Base/GKDef.h"
 #include "Base/GKExport.h"
+#include "Geometry/GKGeometry.h"
 
 struct _SHPHANDLE;
 typedef struct _SHPHANDLE * SHPHandle;
-struct _SHPobject;
-typedef struct _SHPobject SHPObject;
-
+//struct _SHPobject;
+//typedef struct _SHPobject SHPObject; 
 struct _DBFinfo;
 typedef struct _DBFinfo * DBFHandle;
 
@@ -23,19 +23,22 @@ NAMESPACEBEGIN(GKFILEPARSE)
 class FILEPARSE_API GKFileParseshp{
 public:
 	enum shapetype{
-		SHPT_NULL = 0,
-		SHPT_POINT = 1,
-		SHPT_ARC = 3,
-		SHPT_POLYGON = 5,
-		SHPT_MULTIPOINT = 8,
-		SHPT_POINTZ = 11,
-		SHPT_ARCZ = 13,
-		SHPT_POLYGONZ = 15,
-		SHPT_MULTIPOINTZ = 18,
-		SHPT_POINTM = 21,
-		SHPT_ARCM = 23,
-		SHPT_POLYGONM = 25,
-		SHPT_MULTIPOINTM = 28
+		SHP_NULL = 0,
+
+		SHP_POINT = 1,
+		SHP_ARC = 3,
+		SHP_POLYGON = 5,
+		SHP_MULTIPOINT = 8,
+
+		SHP_POINTZ = 11,
+		SHP_ARCZ = 13,
+		SHP_POLYGONZ = 15,
+		SHP_MULTIPOINTZ = 18,
+
+		SHP_POINTM = 21,
+		SHP_ARCM = 23,
+		SHP_POLYGONM = 25,
+		SHP_MULTIPOINTM = 28
 	};
 
 	typedef enum {
@@ -49,21 +52,18 @@ public:
 public:
 	GKFileParseshp();
 	~GKFileParseshp();
+public:
+	GKGEOMETRY::GKGeometry * GetGeomerty(int index);
 
 public:
-	int Open(const char * strFilePath);
+	int Open_(const char * strFilePath);
 	void Close();
 
 	void LoadInfo();
-	int GetEntities();
+	int GetEntitieCount();
 	shapetype GetShapetype();
 	double *GetMinBound();
 	double *GetMaxBound();
-
-	SHPObject *GetEntity(int nIndex); 
-	void DestroyEntity(SHPObject * entity);
-	static void PrintEntity(SHPObject * entity);
-	static int GetEntityID(SHPObject * entity);
 
 public:
 	int OpenDBF(const char * strFilePath);
@@ -87,7 +87,7 @@ private:
 	};
 private:
 	SHPHandle m_shphandle;
-	int m_nEntities;
+	int m_nEntitieCount;
 	int m_nShapeType;
 	double m_dMinBound[EXTREMUM];
 	double m_dMaxBound[EXTREMUM];

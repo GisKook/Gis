@@ -7,6 +7,7 @@
 #define SOURCECODE_INCLUDE_DATATYPE_H_H
 
 #include "Base/GKDef.h"
+#include <math.h>
 
 NAMESPACEBEGIN(GKBASE)
 
@@ -58,14 +59,15 @@ struct GKPoint
 	GKint32 y;
 };
 
-struct GKPoint2d
+static struct GKPoint2d
 {
 	GKdouble x;
 	GKdouble y;
 	GKPoint2d():x(0),y(0){};
 	GKPoint2d(GKdouble x, GKdouble y):x(x), y(y){};
 	GKPoint2d(const GKPoint2d &pt):x(pt.x), y(pt.y){};
-};
+	bool IsEmpty(){return (fabs(EMPTY_PIONT.x - this->x) < 0.0001 && fabs(EMPTY_PIONT.y - this->y) < 0.0001)?true:false; }
+}EMPTY_PIONT(-1.234,-1.234);
 
 struct GKMultiPoint
 {
@@ -101,8 +103,8 @@ struct GKPolyLine
 
 struct GKPolyLine2d
 {
-	GKuint32 nLines;
-	GKLine2d* pLinesData;
+	GKuint32 nPointCount;
+	GKPoint2d * pLinesData;
 };
 
 struct GKPolyPolyLine

@@ -217,6 +217,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Base\GKErrors.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Src\Base\GKString.cpp"
 				>
 			</File>

@@ -172,6 +172,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Src\Geometry\GKGeometryPolypolyline.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\test.cpp"
 				>
 				<FileConfiguration
@@ -194,7 +198,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Include\Geometry\GKGeometryHeader.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Include\Geometry\GKGeometryLine.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\Geometry\GKGeometryMixture.h"
 				>
 			</File>
 			<File

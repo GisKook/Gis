@@ -10,9 +10,9 @@ class GEOMETRY_API GKGeometryPolypolygon : public GKGeometry
 {
 public:
 	// 得到Geomtry的类型
-	virtual GKuint8 GetType() const {return GKGeometry::GeoPolypolygon;}
+	virtual GKBASE::GKuint8 GetType() const {return GKGeometry::GeoPolypolygon;}
 
-	void Create(GKBASE::GKuint32 partcount, std::vector<GKuint32> & parts,std::vector<GKBASE::GKPoint2d> & points);
+	void Create(GKBASE::GKuint32 partcount, std::vector<GKBASE::GKuint32> & parts,std::vector<GKBASE::GKPoint2d> & points);
 
 	void SetPartCounts(GKBASE::GKuint32 partcount){m_partcount = partcount;}
 
@@ -22,7 +22,7 @@ private:
 	GKBASE::GKuint32 m_partcount; 
 };
 
-void GKGeometryPolypolygon::Create( GKBASE::GKuint32 partcount, std::vector<GKuint32> & parts,std::vector<GKBASE::GKPoint2d> & points )
+void GKGeometryPolypolygon::Create( GKBASE::GKuint32 partcount, std::vector<GKBASE::GKuint32> & parts,std::vector<GKBASE::GKPoint2d> & points )
 {
 	m_partcount = partcount;
 	m_parts = parts;
