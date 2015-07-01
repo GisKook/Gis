@@ -175,11 +175,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\Include\Base\GKConfig.h"
+				>
+			</File>
+			<File
 				RelativePath="..\..\Include\Base\GKDataType.h"
 				>
 			</File>
 			<File
 				RelativePath="..\..\Include\Base\GKDef.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Include\Base\GKEndianness.h"
 				>
 			</File>
 			<File
@@ -210,6 +218,10 @@
 			>
 			<File
 				RelativePath="..\..\Src\Base\GKByteString.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\Src\Base\GKConfig.cpp"
 				>
 			</File>
 			<File

@@ -1,12 +1,13 @@
 #include "unicode/ucnv.h"
 #include "Base/GKTextEncoding.h"
+#include "Base/GKSystem.h"
 using namespace U_ICU_NAMESPACE;
 
 namespace GKBASE
 {
 extern GKchar* g_pCharset[];
 
-GKTextEncoding::GKTextEncoding( Charset nToCharset,Charset nFromCharset )
+GKTextEncoding::GKTextEncoding( GKCharset nToCharset,GKCharset nFromCharset )
 {
 	m_bstrToCharset=g_pCharset[nToCharset];
 	m_bstrFromCharset=g_pCharset[nFromCharset];

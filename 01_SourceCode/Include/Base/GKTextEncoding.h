@@ -15,7 +15,7 @@ public:
 	// 生成转换器
 	// param nToCharset[in] 目标编码
 	// param nFromCharset[in] 源编码
-	GKTextEncoding(Charset nToCharset,Charset nFromCharset);
+	GKTextEncoding(GKCharset nToCharset,GKCharset nFromCharset);
 
 	// 生成转换器
 	// param strToCharset[in] 目标编码

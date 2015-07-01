@@ -19,8 +19,6 @@ using namespace icu_44;
 namespace GKBASE 
 {
 
-
-
 class BASE_API GKString
 {
 public:

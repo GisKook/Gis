@@ -224,6 +224,9 @@ GKGEOMETRY::GKGeometry * GKFILEPARSE::GKFileParseshp::GetGeomerty( int index )
 	return geo;
 }
 
+GKBASE::GKErrorCode GKFILEPARSE::GKFileParseshp::Open( GKBASE::GKString filepath ){
+}
+
 int GKFileParseshp::GetEntitieCount()
 {
 	return m_nEntitieCount; 

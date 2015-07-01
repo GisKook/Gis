@@ -7,36 +7,12 @@
 
 #include <string>
 #include "Base/GKDataType.h"
+#include "Base/GKExport.h"
 
 namespace GKBASE
 {
 // 字符集，作为一个字符串数组的索引
-enum Charset{
-	ANSI         =         0,
-	DEFAULT      =         1,
-	SYMBOL       =         2,
-	GB2312		 =         3,
-	GBK          =         4,
-	GB18030      =         5,
-	CHINESEBIG5  =         6,
-	SHIFTJIS	 =         7, 
-	HANGEUL      =         8,
-	HANGUL       =         9,
-	OEM			 =         10,
-	JOHAB        =         11,
-	HEBREW       =		   12,
-	ARABIC       =         13,
-	GREEK        =         14,
-	TURKISH      =         15,
-	VIETNAMESE   =         16,
-	THAI         =         17,
-	EASTEUROPE   =         18,
-	RUSSIAN      =         19,
-	MAC          =         20,
-	BALTIC       =         21,
-	UTF8         =         22, // Unicode 字符集的一种编码方式
-	UTF16        =         23, // Unicode 字符集的一种编码方式
-};
+
 
 class BASE_API GKByteString
 {
@@ -82,18 +58,18 @@ public:
 	inline GKByteString& operator+=(const GKByteString& str); 
 
 	// 得到字符编码
-	inline GKBASE::Charset GetCharset() const;
+	inline GKBASE::GKCharset GetCharset() const;
 
 	// 设置字符编码
 	// param nCharset[in] 要设置的字符集编码
-	inline void SetCharset(GKBASE::Charset nCharset); 
+	inline void SetCharset(GKBASE::GKCharset nCharset); 
 
 public:
 	// 内部使用的string
 	std::string m_string;
 private:
 	// 字符编码
-	Charset	m_nCharset;
+	GKCharset	m_nCharset;
 };
 
 inline GKByteString& GKByteString::operator +=(const GKBASE::GKByteString &str) 
@@ -117,12 +93,12 @@ inline GKint32 GKByteString::GetLength() const
 	return this->m_string.length();
 }
 
-inline GKBASE::Charset GKByteString::GetCharset() const
+inline GKBASE::GKCharset GKByteString::GetCharset() const
 {
 	return m_nCharset;
 }
 
-inline void GKByteString::SetCharset(Charset nCharset) 
+inline void GKByteString::SetCharset(GKCharset nCharset) 
 {
 	m_nCharset = nCharset;
 }
