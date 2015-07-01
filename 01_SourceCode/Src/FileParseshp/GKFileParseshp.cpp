@@ -3,6 +3,7 @@
 #include "shapefile.h"
 #include "FileParseshp/GKFileParseshp.h"
 #include "Geometry/GKGeometryHeader.h"
+#include "Base/GKErrors.h"
 
 using namespace GKFILEPARSE;
 using namespace GKGEOMETRY;
@@ -225,6 +226,7 @@ GKGEOMETRY::GKGeometry * GKFILEPARSE::GKFileParseshp::GetGeomerty( int index )
 }
 
 GKBASE::GKErrorCode GKFILEPARSE::GKFileParseshp::Open( GKBASE::GKString filepath ){
+	return GKSUCCESS;
 }
 
 int GKFileParseshp::GetEntitieCount()

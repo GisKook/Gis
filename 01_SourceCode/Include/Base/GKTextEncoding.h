@@ -5,6 +5,9 @@
 #include "Base/GKDataType.h"
 #include "Base/GKString.h"
 
+struct UConverter;
+typedef struct UConverter UConverter;
+
 namespace GKBASE
 {
 
@@ -12,6 +15,7 @@ namespace GKBASE
 class BASE_API GKTextEncoding
 {
 public:
+	GKTextEncoding(){};
 	// 生成转换器
 	// param nToCharset[in] 目标编码
 	// param nFromCharset[in] 源编码
@@ -22,13 +26,14 @@ public:
 	// param strFromCharset[in] 源编码
 	GKTextEncoding(const GKByteString& spToCharset, const GKByteString& spFromCharset);
 
-	// 生成转换器
-	// param strToCharset[in] 目标编码
-	// param strFromCharset[in] 原编码
-	GKTextEncoding(const GKString& strToCharset, const GKString& strFromCharset);
-
-	~GKTextEncoding();
 	
+	~GKTextEncoding();
+public:
+	void SetSrcCharset(GKCharset charset);
+	
+	void SetDstCharset(GKCharset charset);
+
+public:
 	// 编码转换
 	// param target [out] 目标编码的内容
 	// param nTargetLen[out] 目标编码的长度
@@ -39,23 +44,13 @@ public:
 		const GKbyte* source,
 		GKint32 nSourceLen);
 
-	// 编码转换
-	// param str[out] 目标
-	// 
-	GKbool Convert(GKString& str, const GKbyte* src, GKint32 nSrcLen);
-	
-protected:
-private:
-	GKTextEncoding();
-	GKTextEncoding(const GKTextEncoding&);
-	GKTextEncoding& operator=(const GKTextEncoding&);
-
 private:
 	// ICU---UConverter
-	void* m_pConvert;
+	UConverter * m_dstConverter;
+	UConverter * m_srcConverter;
 
-	GKByteString m_bstrToCharset;
-	GKByteString m_bstrFromCharset;
+	GKByteString m_dstCharset;
+	GKByteString m_srcCharset;
 };
 
 }

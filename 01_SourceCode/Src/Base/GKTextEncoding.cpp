@@ -9,20 +9,15 @@ extern GKchar* g_pCharset[];
 
 GKTextEncoding::GKTextEncoding( GKCharset nToCharset,GKCharset nFromCharset )
 {
-	m_bstrToCharset=g_pCharset[nToCharset];
-	m_bstrFromCharset=g_pCharset[nFromCharset];
+	m_dstCharset=g_pCharset[nToCharset];
+	m_srcCharset=g_pCharset[nFromCharset];
 }
 
 GKTextEncoding::GKTextEncoding( const GKByteString& bstrToCharset, const GKByteString& bstrFromCharset )
 {
-	m_bstrFromCharset = bstrFromCharset;
-	m_bstrToCharset = bstrToCharset;
-}
-
-GKTextEncoding::GKTextEncoding( const GKString& strToCharset, const GKString& strFromCharset )
-{
-	strToCharset.ToUTF8(m_bstrToCharset);
-	strFromCharset.ToUTF8(m_bstrFromCharset);
+	//ucnv_setDefaultName//
+	m_srcCharset = bstrFromCharset;
+	m_dstCharset = bstrToCharset;
 }
 
 GKTextEncoding::~GKTextEncoding()
@@ -33,22 +28,34 @@ GKTextEncoding::~GKTextEncoding()
 GKbool GKTextEncoding::Convert( GKbyte* target, GKint32& nTargetLen, const GKbyte* source, GKint32 nSourceLen )
 {
 	GKASSERT(target != NULL && source != NULL);
-	UErrorCode ErrorCode; 
-	ucnv_convert(m_bstrToCharset.Cstr(), m_bstrToCharset.Cstr(), (char*)target, nTargetLen, (char*)source, nSourceLen,&ErrorCode);
+	nTargetLen = 0;
+	UErrorCode ErrorCode;
+	m_dstConverter = ucnv_open(m_dstCharset.Cstr(), &ErrorCode);
+	if(U_FAILURE(ErrorCode)){
+		ucnv_close(m_dstConverter); 
+		return false;
+	}
+	m_srcConverter = ucnv_open(m_srcCharset.Cstr(), &ErrorCode);
+	if(U_FAILURE(ErrorCode)){
+		ucnv_close(m_srcConverter);
+		return false;
+	}
+	
+	ucnv_convert(m_dstCharset.Cstr(), m_dstCharset.Cstr(), (char*)target, nTargetLen, (char*)source, nSourceLen,&ErrorCode);
+	ucnv_close(m_dstConverter);
+	ucnv_close(m_srcConverter);
 
 	return ErrorCode == U_ZERO_ERROR; 
 }
 
-GKbool GKTextEncoding::Convert( GKString& str, const GKbyte* src, GKint32 nSrcLen )
-{
-// 	GKASSERT(target != NULL && source != NULL);
-// 	UErrorCode ErrorCode; 
-// 	ucnv_convert(m_bstrToCharset.Cstr(), m_bstrToCharset.Cstr(), (char*)target, nTargetLen, (char*)source, nSourceLen,&ErrorCode);
-// 
-// 
-// 	return ErrorCode == U_ZERO_ERROR;
-	return TRUE;
+void GKTextEncoding::SetSrcCharset( GKCharset charset ) {
+	m_srcCharset = g_pCharset[charset];
 }
+
+void GKTextEncoding::SetDstCharset( GKCharset charset ) { 
+	m_dstCharset = g_pCharset[charset];
+}
+
 }
 
 

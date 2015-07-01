@@ -9,6 +9,7 @@
 #define FILEPARSE_FILEPARSESHP_H_H
 #include "Base/GKDef.h"
 #include "Base/GKExport.h"
+#include "Base/GKString.h"
 #include "Geometry/GKGeometry.h"
 
 struct _SHPHANDLE;

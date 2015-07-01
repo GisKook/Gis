@@ -5,12 +5,13 @@
 NAMESPACEBEGIN(GKBASE)
 class BASE_API GKConfig{
 public:
-	const GKConfig & GetInstance();
+	static GKConfig & GetInstance();
 
 	void SetCharset(GKBASE::GKCharset charset){m_charset = charset;};
+	GKBASE::GKCharset GetCharset(){return m_charset;}
 private:
-	GKConfig();
-	~GKConfig();
+	GKConfig(){};
+	~GKConfig(){};
 private:
 	GKCharset m_charset; 
 };
