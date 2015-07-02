@@ -139,6 +139,8 @@ public:
 	// 格式化文本
 	GKString Format(const GKuchar* fmt, ...);
 
+	GKuchar operator[](GKint32 index);
+
 private:
 	UnicodeString* m_pString;
 

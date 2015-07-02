@@ -15,9 +15,15 @@ public:
 public:
 	GKchar * locale_str();
 
+	void SetCharset(GKBASE::GKCharset charset){m_charset = charset;}
+
+	void ChangeSuffix(GKBASE::GKuchar *suffix);
+
 private:
 	GKBASE::GKCharset m_charset;
 	GKBASE::GKString m_string;
+	GKBASE::GKchar m_cstr[255];
+	GKBASE::GKint32 m_cstrlen;
 };
 
 NAMESPACEEND

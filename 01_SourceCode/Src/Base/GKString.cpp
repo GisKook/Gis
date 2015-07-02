@@ -661,6 +661,11 @@ GKString GKString::Format( const GKuchar* fmt, ... )
 	return GKString(buf, nSize);
 }
 
+GKBASE::GKuchar GKString::operator[]( GKint32 index )
+{
+	return (*m_pString)[0];
+}
+
 StringPiece::StringPiece(const GKuchar* str)
 : m_pStr(str), m_nLength((str == NULL) ? 0 : static_cast<GKint32>(GKSTRLEN(str))) { }
 

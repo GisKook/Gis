@@ -226,6 +226,7 @@ GKGEOMETRY::GKGeometry * GKFILEPARSE::GKFileParseshp::GetGeomerty( int index )
 }
 
 GKBASE::GKErrorCode GKFILEPARSE::GKFileParseshp::Open( GKBASE::GKString filepath ){
+	
 	return GKSUCCESS;
 }
 

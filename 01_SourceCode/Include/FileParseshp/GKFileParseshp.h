@@ -57,7 +57,7 @@ public:
 	GKGEOMETRY::GKGeometry * GetGeomerty(int index);
 
 public:
-	GKBASE::GKErrorCode Open(GKBASE::GKString filepath);
+	GKBASE::GKErrorCode Open(GKBASE::GKFilePath filepath);
 public:
 	int Open_(const char * strFilePath);
 	void Close();
