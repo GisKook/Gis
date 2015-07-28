@@ -10,6 +10,7 @@
 #include "Base/GKDef.h"
 #include "Base/GKExport.h"
 #include "Base/GKString.h"
+#include "Base/GKFilePath.h"
 #include "Geometry/GKGeometry.h"
 
 struct _SHPHANDLE;
@@ -59,7 +60,6 @@ public:
 public:
 	GKBASE::GKErrorCode Open(GKBASE::GKFilePath filepath);
 public:
-	int Open_(const char * strFilePath);
 	void Close();
 
 	void LoadInfo();
@@ -69,8 +69,6 @@ public:
 	double *GetMaxBound();
 
 public:
-	int OpenDBF(const char * strFilePath);
-	void CloseDBF();
 	void LoadDBFInfo(); 
 	int GetFieldCount();
 	int GetRecordCount();

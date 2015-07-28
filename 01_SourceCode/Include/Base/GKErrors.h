@@ -10,6 +10,8 @@
 
 #define GKSUCCESS                         0x00000000 // success
 #define E_FILEPATH_UNSPORT_I18N           0x00000001 // filepath donot support i18n
+#define E_FILEPATH_OPEN_SHPFILE           0x00000002 // open shp file .shp file error
+#define E_FILEPATH_OPEN_DBFFILE           0x00000003 // open shp file .dbf file error
 
 char * GKErrorStr(GKBASE::GKErrorCode errcode);
 

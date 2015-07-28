@@ -3,7 +3,13 @@
 #include "FileParseshp/GKFileParseshp.h"
 
 using namespace GKFILEPARSE;
-int main(){
+using namespace GKBASE;
+int main(){ 
+	GKFilePath filepath(_U("F:/docs/gis/data/bou2_4m/bou2_4l.shp"));
+	filepath.SetCharset(GKBASE::GBK);
+	GKFileParseshp shpfile;
+	shpfile.Open(filepath);
+	shpfile.Close();
 //	FILE *fp;
 //	fp = freopen("E:/Gis/01_SourceCode/Projects/FileParseshp/alabama_natural/dump.txt", "a+", stdout);
 //	GKFileParseshp fileparseshp;

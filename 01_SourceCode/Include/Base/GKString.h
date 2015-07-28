@@ -141,7 +141,9 @@ public:
 
 	GKuchar operator[](GKint32 index);
 
-private:
+	GKString & Replace(GKString oldstring, GKString newstring);
+
+public:
 	UnicodeString* m_pString;
 
 private:

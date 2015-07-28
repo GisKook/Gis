@@ -666,6 +666,14 @@ GKBASE::GKuchar GKString::operator[]( GKint32 index )
 	return (*m_pString)[0];
 }
 
+GKString & GKString::Replace( GKString oldstring, GKString newstring )
+{
+	m_pString->findAndReplace(*oldstring.m_pString, *newstring.m_pString);
+
+	return *this;
+}
+
+
 StringPiece::StringPiece(const GKuchar* str)
 : m_pStr(str), m_nLength((str == NULL) ? 0 : static_cast<GKint32>(GKSTRLEN(str))) { }
 

@@ -21,18 +21,15 @@ m_Fields(NULL)
 	memset(m_dMaxBound, 0, sizeof(double)*EXTREMUM);
 }
 
-int GKFILEPARSE::GKFileParseshp::Open_( const char * strFilePath )
-{ 
-	m_shphandle = SHPOpen(strFilePath, "rb");
-
-	return m_shphandle == NULL;
-}
 
 void GKFILEPARSE::GKFileParseshp::Close()
 {
 	if(m_shphandle != NULL) {
 		SHPClose(m_shphandle);
 		m_shphandle = NULL;
+		free(m_Fields);
+		DBFClose(m_dbfhandle); 
+		m_dbfhandle = NULL;
 	}
 }
 
@@ -91,16 +88,6 @@ void PrintEntity( SHPObject * entity )
 	fprintf(stdout, "dfXMan: %f dfYMan: %f dfZMsn: %f dfMMsn: %f\n", dfXMax, dfYMax, dfZMax, dfMMax);
 }
 
-int GKFILEPARSE::GKFileParseshp::OpenDBF( const char * strFilePath )
-{ 
-	return (m_dbfhandle = DBFOpen(strFilePath, "rb")) == NULL;
-}
-
-void GKFILEPARSE::GKFileParseshp::CloseDBF()
-{
-	free(m_Fields);
-	DBFClose(m_dbfhandle); 
-}
 
 void GKFILEPARSE::GKFileParseshp::LoadDBFInfo()
 {
@@ -225,8 +212,21 @@ GKGEOMETRY::GKGeometry * GKFILEPARSE::GKFileParseshp::GetGeomerty( int index )
 	return geo;
 }
 
-GKBASE::GKErrorCode GKFILEPARSE::GKFileParseshp::Open( GKBASE::GKString filepath ){
-	
+GKBASE::GKErrorCode GKFILEPARSE::GKFileParseshp::Open( GKBASE::GKFilePath filepath){
+	m_shphandle = SHPOpen(filepath.locale_str(), "rb");
+	if(m_shphandle != NULL){
+		filepath.ChangeSuffix(_U(".shp"), _U(".dbf"));
+		m_dbfhandle = DBFOpen(filepath.locale_str(), "rb");
+		if(m_dbfhandle == NULL){ 
+			SHPClose(m_shphandle);
+			m_shphandle = NULL;
+			
+			return E_FILEPATH_OPEN_DBFFILE;
+		}
+	}else{
+		return E_FILEPATH_OPEN_SHPFILE;
+	}
+
 	return GKSUCCESS;
 }
 

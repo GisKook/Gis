@@ -17,7 +17,7 @@ public:
 
 	void SetCharset(GKBASE::GKCharset charset){m_charset = charset;}
 
-	void ChangeSuffix(GKBASE::GKuchar *suffix);
+	void ChangeSuffix(GKBASE::GKuchar * oldsuffix,GKBASE::GKuchar *newsuffix);
 
 private:
 	GKBASE::GKCharset m_charset;

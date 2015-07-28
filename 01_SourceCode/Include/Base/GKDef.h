@@ -60,6 +60,8 @@ static inline void gkassert( bool b )
 		}
 	};
 }
+
+#define GKFPRINTF fprintf
 #define GKASSERT gkassert
 #else
 #define GKASSERT assert

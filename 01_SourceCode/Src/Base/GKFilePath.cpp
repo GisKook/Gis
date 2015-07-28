@@ -10,10 +10,6 @@ GKchar * GKBASE::GKFilePath::locale_str(){
 	return m_cstr;
 }
 
-void GKBASE::GKFilePath::ChangeSuffix( GKBASE::GKuchar *suffix ) { 
-	GKint32 strlen = m_string.GetLength();
-	for(GKint32 i = strlen - 1; i > 0; ++i){
-		if(m_string[i] == _U(".")){
-		}
-	}
+void GKBASE::GKFilePath::ChangeSuffix( GKBASE::GKuchar *oldsuffix, GKBASE::GKuchar *newsuffix ) {
+	m_string.Replace(oldsuffix, newsuffix);
 }
