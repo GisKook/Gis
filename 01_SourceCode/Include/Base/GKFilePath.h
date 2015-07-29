@@ -10,7 +10,7 @@ NAMESPACEBEGIN(GKBASE)
 class BASE_API GKFilePath{
 public:
 	GKFilePath(){};
-	GKFilePath(const GKuchar * path){m_string = path;};
+	GKFilePath(const GKuchar * path):m_cstrlen(sizeof(m_cstr)){m_string = path;};
 
 public:
 	GKchar * locale_str();

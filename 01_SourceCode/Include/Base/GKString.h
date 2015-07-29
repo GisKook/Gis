@@ -142,6 +142,9 @@ public:
 	GKuchar operator[](GKint32 index);
 
 	GKString & Replace(GKString oldstring, GKString newstring);
+	
+	// return length
+	int ToCharset(GKBASE::GKCharset charset, GKchar * dst, GKint32 dstsize);
 
 public:
 	UnicodeString* m_pString;

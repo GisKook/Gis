@@ -10,6 +10,7 @@ namespace GKBASE
 {
 // 添加关于Format的函数,来自linux内核
 #define noinline __attribute__((noinline))
+extern GKchar* g_pCharset[];
 
 #define do_div(n,base,result)\
  {\
@@ -671,6 +672,19 @@ GKString & GKString::Replace( GKString oldstring, GKString newstring )
 	m_pString->findAndReplace(*oldstring.m_pString, *newstring.m_pString);
 
 	return *this;
+}
+
+int GKString::ToCharset( GKBASE::GKCharset charset, GKchar * dst, GKint32 dstsize )
+{
+	UErrorCode ErrorCode = U_ZERO_ERROR;
+	UConverter * conv = ucnv_open(g_pCharset[charset], &ErrorCode);
+	if(U_FAILURE(ErrorCode)){
+		GKFPRINTF(stdout, "%s\n",u_errorName(ErrorCode));
+		ucnv_close(conv); 
+		return 0;
+	}
+	return ucnv_fromUChars(conv, dst, dstsize, m_pString->getBuffer(),
+		GetLength(), &ErrorCode); 
 }
 
 

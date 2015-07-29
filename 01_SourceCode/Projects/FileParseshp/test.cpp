@@ -10,8 +10,6 @@ int main(){
 	GKFileParseshp shpfile;
 	shpfile.Open(filepath);
 	shpfile.Close();
-//	FILE *fp;
-//	fp = freopen("E:/Gis/01_SourceCode/Projects/FileParseshp/alabama_natural/dump.txt", "a+", stdout);
 //	GKFileParseshp fileparseshp;
 //	fileparseshp.Open_("E:/Gis/01_SourceCode/Projects/FileParseshp/alabama_natural/alabama_natural.shp");
 //	fileparseshp.OpenDBF("E:/Gis/01_SourceCode/Projects/FileParseshp/alabama_natural/alabama_natural.dbf");

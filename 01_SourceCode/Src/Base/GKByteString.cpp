@@ -2,7 +2,7 @@
 
 namespace GKBASE{
 
-extern BASE_API GKchar* g_pCharset[] = 
+BASE_API GKchar* g_pCharset[] = 
 {
 	"\0",
 	"\0",
@@ -27,7 +27,7 @@ extern BASE_API GKchar* g_pCharset[] =
 	"MAC",
 	"BALTIC",
 	"UTF-8", // Unicode 字符集的一种编码方式
-	"UTF16" // Unicode 字符集的一种编码方式
+	"UTF16LE" // Unicode 字符集的一种编码方式
 };
 
 extern GKByteString operator+( const GKByteString& str1, const GKByteString& str2 )
